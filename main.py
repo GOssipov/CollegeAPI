@@ -7,9 +7,9 @@ college_names = ["College A", "College B", "College C"]
 
 @app.get("/")
 async def root():
-    return {"message": "Landing Page"}
+    return {"message": "Landing Page Tester"}
 
-@app.get("/currentcollege")
+@app.get("/current_college")
 async def current_college():
     return college_names
 
