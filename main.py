@@ -13,6 +13,9 @@ async def root():
 async def current_college():
     return college_names
 
-@app.get("/chosen_college")
-async def chosen_college():
-    return college_names
+@app.get("/chosen_college/{college_name}")
+async def chosen_college(college_name: str):
+    if college_name in college_names:
+        return {"chosen_college": college_name}
+    else:
+        return {"error": "College not found"}
