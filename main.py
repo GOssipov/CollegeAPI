@@ -13,6 +13,9 @@ async def root():
 async def current_college():
     return college_names
 
-@app.put("/choose_college")
-async def choose_college(college_name: str):
-    return {"message": f"You've chosen {college_name}"}
+@app.route("/choose_college", methods=["GET", "PUT"])
+async def choose_college(college_name: str = None):
+    if college_name:
+        return {"message": f"You've chosen {college_name}"}
+    else:
+        return {"message": "No college name provided"}
