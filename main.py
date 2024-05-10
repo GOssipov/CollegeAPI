@@ -13,6 +13,6 @@ async def root():
 async def current_college():
     return college_names
 
-@app.put("/{college_name}/choose_college")
+@app.put("/choose_college")
 async def choose_college(college_name: str):
     return {"message": f"You've chosen {college_name}"}
