@@ -13,9 +13,8 @@ async def root():
 async def current_college():
     return college_names
 
-@app.route("/choose_college", methods=["GET", "PUT"])
-async def choose_college(college_name: str = None):
-    if college_name:
-        return {"message": f"You've chosen {college_name}"}
-    else:
-        return {"message": "No college name provided"}
+@app.post("/choose_college")
+def choose_college(college_choice: CollegeChoice):
+    chosen_college = college_choice.college_name
+    # Do something with the chosen college, like save it to a database
+    return {"message": f"You chose {chosen_college}!"}
