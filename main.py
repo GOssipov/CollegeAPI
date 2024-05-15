@@ -13,6 +13,9 @@ async def root():
 async def current_college():
     return college_names
 
+class CollegeChoice(BaseModel):
+    college_name: str
+
 @app.post("/choose_college")
 def choose_college(college_choice: CollegeChoice):
     chosen_college = college_choice.college_name
