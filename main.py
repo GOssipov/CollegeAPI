@@ -44,3 +44,14 @@ async def choose_major(major_choice: MajorChoice):
     # For demonstration purposes, let's just print it
     print(f"Chosen major: {chosen_major}")
     return {"message": f"You chose {chosen_major} as your major!"}
+
+
+@app.get("/schedule")
+async def schedule(major_name: str, college_name: str):  # Add college_name as a parameter
+    if major_name == "Computer Science" and college_name == "City College of San Francisco":
+        print("Hey there pal, that's my major")
+        return {"message": "Hey there pal, that's my major!"}
+    else:
+        return {"message": "Not Computer Science or Not City College of San Francisco"}
+
+
