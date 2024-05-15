@@ -17,7 +17,10 @@ class CollegeChoice(BaseModel):
     college_name: str
 
 @app.post("/choose_college")
-def choose_college(college_choice: CollegeChoice):
+async def choose_college(college_choice: CollegeChoice):
     chosen_college = college_choice.college_name
-    # Do something with the chosen college, like save it to a database
+    # Assuming you have some database connection or ORM set up
+    # You can save the chosen college to your database here
+    # For demonstration purposes, let's just print it
+    print(f"Chosen college: {chosen_college}")
     return {"message": f"You chose {chosen_college}!"}
