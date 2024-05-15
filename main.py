@@ -55,3 +55,12 @@ async def schedule(major_name: str, college_name: str):  # Add college_name as a
         return {"message": "Not Computer Science or Not City College of San Francisco"}
 
 
+class MyData(BaseModel):
+    key1: str
+    key2: str
+
+@app.post("/process_data")
+async def process_data(data: MyData):
+    return {"message": f"Received data: {data.key1}, {data.key2}"}
+
+
